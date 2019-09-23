@@ -4,8 +4,9 @@
 # https://aka.ms/yaml
 
 trigger:
-- dev
-
+branches:
+    include:
+      refs/tags/preRelease
 pool:
   vmImage: 'ubuntu-latest'
 

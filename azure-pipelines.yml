@@ -6,7 +6,7 @@
 trigger:
 branches:
     include:
-      refs/tags/preRelease
+      refs/tags/preRelease*
 pool:
   vmImage: 'ubuntu-latest'
 

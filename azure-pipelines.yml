@@ -3,8 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# specific branch build
 trigger:
-- dev
+  tags:
+    include:
+    - Release.*
+    exclude:
+    - v2.0
 
 pool:
   vmImage: 'ubuntu-latest'

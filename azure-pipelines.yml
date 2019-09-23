@@ -3,10 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# specific branch build
 trigger:
-    branches:
-        include:
-         refs/tags/preRelease*
+  tags:
+    include:
+    - preRelease.*
+    exclude:
+    - v2.0
 pool:
   vmImage: 'ubuntu-latest'
 

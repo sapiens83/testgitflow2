@@ -9,7 +9,7 @@ trigger:
     include:
     - Release.*
     exclude:
-    - v2.0
+    - dev/*
 
 pool:
   vmImage: 'ubuntu-latest'

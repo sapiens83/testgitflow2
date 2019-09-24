@@ -9,6 +9,8 @@ trigger:
   branches:
     include:
     - dev
+    exclude:
+    - master/*
 pool:
   vmImage: 'ubuntu-latest'
 

@@ -1,2 +1,2 @@
 # testgitflow
-Testing the Git Flow t
+Testing the Git Flow from Featrure2

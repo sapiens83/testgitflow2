@@ -10,8 +10,7 @@ trigger:
     include:
     - dev
     - feature*
-    exclude:
-    - master/*
+    - master
 pool:
   vmImage: 'ubuntu-latest'
 

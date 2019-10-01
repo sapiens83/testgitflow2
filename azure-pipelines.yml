@@ -22,7 +22,7 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
     echo "BUILD_BUILDNUMBER = ${env:BUILD_BUILDNUMBER}"
-    echo "BUILD_SOURCEBRANCH= ${env:BUILD_SOURCEBRANCH}"
+    echo "BUILD_SOURCEBRANCH= ${env:Build.SourceBranch}"
     echo "BUILD_SOURCEBRANCHNAME= ${env:BUILD_SOURCEBRANCHNAME}"
     echo "BUILD_SOURCESDIRECTORY= ${env:BUILD_SOURCESDIRECTORY}"
     echo "BUILD_SOURCEVERSION= ${env:BUILD_SOURCEVERSION}"

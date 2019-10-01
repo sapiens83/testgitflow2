@@ -6,6 +6,10 @@
 
 # specific branch build
 trigger:
+  tags:
+    include:
+    - preRelease.*
+    - Release.*
   branches:
     include:
     - dev

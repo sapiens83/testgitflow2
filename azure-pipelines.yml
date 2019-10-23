@@ -15,11 +15,12 @@ trigger:
     - dev
     - feature*
     - master
-pool:
-  vmImage: 'ubuntu-latest'
+
 
 jobs:
-  job:Construction
+  - job: Construction
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - script: echo Hello, world!
       displayName: 'Run a one-line script'

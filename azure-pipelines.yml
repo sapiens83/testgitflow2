@@ -43,6 +43,6 @@ jobs:
           set /a version_second_to_increase+=1
           rem #join again with the last element
           set versionPackage=%version_first%.%version_second_to_increase%.0
-          echo versionPackage
+          echo versionPackage %versionPackage%
           
         displayName: 'Run a multi-line script'

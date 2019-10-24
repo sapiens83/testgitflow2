@@ -32,6 +32,7 @@ jobs:
           echo "BUILD_SOURCEVERSION= $(Build.SourceVersion)"
 
           set TAG_BUILD_SOURCEBRANCHNAME=$(Build.SourceBranchName)
+          echo %TAG_BUILD_SOURCEBRANCHNAME%
           REM #for /F "tokens=4" %%A IN ('FINDSTR /C:"Successfully" tmpfile') DO SET VAR=%%A
           REM #IF (%TAG_BUILD_SOURCEBRANCHNAME% )
           for /f "tokens=1-1 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)

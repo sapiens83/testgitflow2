@@ -35,14 +35,14 @@ jobs:
           echo %TAG_BUILD_SOURCEBRANCHNAME%
           REM #for /F "tokens=4" %%A IN ('FINDSTR /C:"Successfully" tmpfile') DO SET VAR=%%A
           REM #IF (%TAG_BUILD_SOURCEBRANCHNAME% )
-          for /f "tokens=1-1 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)
-          for /f "tokens=2-2 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_second_to_increase=%%A)
-          for /f "tokens=3-3 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_third=%%A)
+          for /f "tokens=2-2 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)
+          for /f "tokens=3-3 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_second=%%A)
+          for /f "tokens=4-4 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_third=%%A)
           
           rem #increse on 1
           set /a version_second_to_increase+=1
           rem #join again with the last element
-          set versionPackage=%version_first%.%version_second_to_increase%.0
+          set versionPackage=%version_first%.%version_second_to_increase%.%set version_third%
           echo versionPackage %versionPackage%
           
         displayName: 'Run a multi-line script'

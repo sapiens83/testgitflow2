@@ -20,31 +20,28 @@ trigger:
 jobs:
   - job: Construction
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: "windows-2019"
     steps:
-    - script: echo Hello, world!
-      displayName: 'Run a one-line script'
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+          echo "BUILD_BUILDNUMBER = $(Build.BuildNumber)"
+          echo "BUILD_SOURCEBRANCH= $(Build.SourceBranch)"
+          echo "BUILD_SOURCEBRANCHNAME= $(Build.SourceBranchName)"
+          echo "BUILD_SOURCESDIRECTORY= $(Build.SourcesDirectory)"
+          echo "BUILD_SOURCEVERSION= $(Build.SourceVersion)"
 
-    - script: |
-        echo Add other tasks to build, test, and deploy your project.
-        echo See https://aka.ms/yaml
-        echo "BUILD_BUILDNUMBER = $(Build.BuildNumber)"
-        echo "BUILD_SOURCEBRANCH= $(Build.SourceBranch)"
-        echo "BUILD_SOURCEBRANCHNAME= $(Build.SourceBranchName)"
-        echo "BUILD_SOURCESDIRECTORY= $(Build.SourcesDirectory)"
-        echo "BUILD_SOURCEVERSION= $(Build.SourceVersion)"
-
-        set TAG_BUILD_SOURCEBRANCHNAME=$(Build.SourceBranchName)
-        REM #for /F "tokens=4" %%A IN ('FINDSTR /C:"Successfully" tmpfile') DO SET VAR=%%A
-        REM #IF (%TAG_BUILD_SOURCEBRANCHNAME% )
-        for /f "tokens=1-1 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)
-        for /f "tokens=2-2 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_second_to_increase=%%A)
-        for /f "tokens=3-3 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_third=%%A)
-        
-        rem #increse on 1
-        set /a version_second_to_increase+=1
-        rem #join again with the last element
-        set versionPackage=%version_first%.%version_second_to_increase%.0
-        echo versionPackage
-        
-      displayName: 'Run a multi-line script'
+          set TAG_BUILD_SOURCEBRANCHNAME=$(Build.SourceBranchName)
+          REM #for /F "tokens=4" %%A IN ('FINDSTR /C:"Successfully" tmpfile') DO SET VAR=%%A
+          REM #IF (%TAG_BUILD_SOURCEBRANCHNAME% )
+          for /f "tokens=1-1 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)
+          for /f "tokens=2-2 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_second_to_increase=%%A)
+          for /f "tokens=3-3 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_third=%%A)
+          
+          rem #increse on 1
+          set /a version_second_to_increase+=1
+          rem #join again with the last element
+          set versionPackage=%version_first%.%version_second_to_increase%.0
+          echo versionPackage
+          
+        displayName: 'Run a multi-line script'

@@ -46,5 +46,6 @@ jobs:
           echo versionPackage %versionPackage%
           set COL_BLUE="\x1b[34;01m" 
           set COL_RESET="\x1b[39;49;00m"
+          color 06
           echo -e %COL_BLUE% \x1b[34;01m "Important Message "%COL_RESET%This is a message"
         displayName: 'Run a multi-line script'

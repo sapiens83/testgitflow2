@@ -45,21 +45,21 @@ jobs:
           set versionPackage=%version_first%.%version_second%.%version_third%
           echo versionPackage %versionPackage%
           echo ---Bg---40---41---42---43---44---45---46---47
-          for i in {30..37} # foreground
+          for i in {30..37} 
           do
           echo -n -e fg$i- 
-          for j in {40..47} # background
+          for j in {40..47} 
           do
           echo -n -e '\E['$i';'$j'm SS64'
-          tput sgr0 # Reset text attributes to normal without clear
+          tput sgr0 
           done
-          echo # newline
+          echo 
           done
           
           echo -- Clear BG --
-          for n in {30..37} # foreground
+          for n in {30..37} 
           do
           echo -e fg$n '\E['$n';'01'm SS64'
-          tput sgr0 # Reset text attributes to normal without clear
+          tput sgr0 
           done
         displayName: 'Run a multi-line script'

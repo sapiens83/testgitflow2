@@ -33,6 +33,8 @@ jobs:
 
           set TAG_BUILD_SOURCEBRANCHNAME=$(Build.SourceBranchName)
           echo %TAG_BUILD_SOURCEBRANCHNAME%
+          set _appsettingsLocalAgentVersion=%TAG_BUILD_SOURCEBRANCHNAME:~1,-1%
+          echo %_appsettingsLocalAgentVersion%
           REM #for /F "tokens=4" %%A IN ('FINDSTR /C:"Successfully" tmpfile') DO SET VAR=%%A
           REM #IF (%TAG_BUILD_SOURCEBRANCHNAME% )
           for /f "tokens=2-2 delims=." %%A in ('echo %TAG_BUILD_SOURCEBRANCHNAME%') do (set version_first=%%A)
@@ -44,10 +46,5 @@ jobs:
           rem #join again with the last element
           set versionPackage=%version_first%.%version_second%.%version_third%
           echo versionPackage %versionPackage%
-          set COL_BLUE="\x1b[34;01m" 
-          set COL_RESET="\x1b[39;49;00m"
           
-          echo -e %COL_BLUE%  "\x1b[34;01m Important Message "%COL_RESET%This is a message"
-          cmd /T:06  
-          echo -e %COL_BLUE%  "\x1b[34;01m Important Message "%COL_RESET%This is a message"
         displayName: 'Run a multi-line script'

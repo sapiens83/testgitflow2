@@ -44,5 +44,6 @@ jobs:
           rem #join again with the last element
           set versionPackage=%version_first%.%version_second%.%version_third%
           echo versionPackage %versionPackage%
+          Write-Host $comment "Reverse proxy updating json config file before install the service from local agent json config file..." -ForegroundColor Yellow
           
         displayName: 'Run a multi-line script'
